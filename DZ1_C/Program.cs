@@ -44,6 +44,7 @@ else
 7 -> да
 1 -> нет
 */
+
 int N;
 Console.Write("Введите число: ");
 int.TryParse(Console.ReadLine()!, out N);
@@ -75,4 +76,8 @@ if (N == 6)
 if (N == 7)
 {
     Console.Write("Выходной");
+}
+if (N > 7)
+{
+    Console.Write("Попробуйте еще раз");
 }
