@@ -67,11 +67,11 @@ if (N == 4)
 }
 if (N == 5)
 {
-    Console.Write("Работаем");
+    Console.Write("Работаем на раслабоне");
 }
 if (N == 6)
 {
-    Console.Write("Выходной");
+    Console.Write("Ура, выходной");
 }
 if (N == 7)
 {
