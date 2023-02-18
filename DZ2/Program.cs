@@ -6,8 +6,8 @@
 12821 -> да
 23432 -> да
 */
-/* Console.Clear();
-Console.WriteLine("Введите число: ");
+Console.Clear();
+Console.Write("Введите число: ");
 string N = Console.ReadLine()!;
 int size = N.Length;
 
@@ -26,7 +26,7 @@ else
 {
     Console.WriteLine($"ОШИБКА: {N} - не является пятизначным числом");
 }
-*/
+
 /*
 Задача 21
 Напишите программу, 
@@ -73,6 +73,7 @@ Console.Write($"A({A[0]};{A[1]};{A[2]})B({B[0]};{B[1]};{B[2]}) -> {ans}");
 3 -> 1, 8, 27
 5 -> 1, 8, 27, 64, 125
 */
+/*
 Console.Clear();
 
 int N;
@@ -81,5 +82,4 @@ int.TryParse(Console.ReadLine()!, out N);
 
 for (int i = 1; i <= N; i++)
     Console.Write($"{i * i * i} ");
-
-
+*/
