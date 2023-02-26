@@ -73,26 +73,24 @@ int[] FillArray(int size, int min, int max)
 [3 7 22 2 78] -> 76
 */
 
-int[] array = FillArray(5);
+double[] array = FillArray(11);
 
 Print(array);
 double max = 0;
-double min = 11;
+double min = 12;
+
 for (int j = 0; j < array.Length; j++)
 {
     if (array[j] > max)
-    {
         max = array[j];
-    }
     if (array[j] < min)
-    {
         min = array[j];
-    }
 }
 
-Console.Write($"{max - min}");
+Console.WriteLine($"Максимальное число -> {max} и минимальное число -> {min}");
+Console.Write($"Разница между max и min, равна -> {max - min}");
 
-void Print(int[] arr)
+void Print(double[] arr)
 {
     Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
@@ -100,10 +98,10 @@ void Print(int[] arr)
     Console.WriteLine("]");
 }
 
-int[] FillArray(int size)
+double[] FillArray(int size)
 {
-    int[] arr = new int[size];
+    double[] arr = new double[size];
     for (int i = 0; i < size; i++)
-        arr[i] = new Random().Next(10, 100) / 10;
+        arr[i] = Convert.ToDouble(new Random().Next(10, 100)) / 10;
     return arr;
 }
