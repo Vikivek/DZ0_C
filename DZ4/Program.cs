@@ -102,6 +102,6 @@ double[] FillArray(int size)
 {
     double[] arr = new double[size];
     for (int i = 0; i < size; i++)
-        arr[i] = Convert.ToDouble(new Random().Next(10, 100)) / 10;
+        arr[i] = Convert.ToDouble(new Random().Next(100, 1000)) / 100;
     return arr;
 }
