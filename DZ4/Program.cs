@@ -73,29 +73,37 @@ int[] FillArray(int size, int min, int max)
 [3 7 22 2 78] -> 76
 */
 
-int[] array = FillArray(4, -10, 20);
+int[] array = FillArray(5);
 
 Print(array);
-int sum = 0;
-
-for (int j = 1; j < array.Length; j += 2)
+double max = 0;
+double min = 11;
+for (int j = 0; j < array.Length; j++)
 {
-    sum += array[j];
+    if (array[j] > max)
+    {
+        max = array[j];
+    }
+    if (array[j] < min)
+    {
+        min = array[j];
+    }
 }
 
-Console.Write($"Сумма элементов на нечётных позициях = {sum}");
+Console.Write($"{max - min}");
 
 void Print(int[] arr)
 {
+    Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
         Console.Write($"{arr[i]} ");
-    Console.WriteLine();
+    Console.WriteLine("]");
 }
 
-int[] FillArray(int size, int min, int max)
+int[] FillArray(int size)
 {
     int[] arr = new int[size];
     for (int i = 0; i < size; i++)
-        arr[i] = new Random().Next(1, 10);
+        arr[i] = new Random().Next(10, 100) / 10;
     return arr;
 }
