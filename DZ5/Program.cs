@@ -7,25 +7,13 @@
 0, 7, 8, -2, -2 -> 2
 1, -7, 567, 89, 223-> 3
 */
+
+Console.Write("Введите элементы(через пробел): ");
+int[] arr = Array.ConvertAll(Console.ReadLine()!.Split(), int.Parse);
+int count = arr.Count(x => x > 0);
+Console.WriteLine($"Кол-во элементов > {count}");
+
 /*
-Console.Write($"Введите числа, через запятую: ");
-int[] array = FillArray(4, -10, 20);
-Print(array);
-int sum = 0;
-for (int j = 1; j < array.Length; j += 2)
-{
-    sum += array[j];
-}
-Console.Write($"Сумма элементов на нечётных позициях = {sum}");
-
-
-void Print(int[] arr)
-{
-    for (int i = 0; i < arr.Length; i++)
-        Console.Write($"{arr[i]} ");
-    Console.WriteLine();
-} 
-*//*
 Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, 
 заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
 значения b1, k1, b2 и k2 задаются пользователем.
