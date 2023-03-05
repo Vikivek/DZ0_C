@@ -37,26 +37,25 @@ for (int i = 0; i < arr.GetLength(0); i++)
 
 17 -> такого числа в массиве нет
 */
-
-int n, m, k;
+/*
+int a, b;
 Console.Write($"Введите количество строк: ");
-int.TryParse(Console.ReadLine()!, out n);
+int.TryParse(Console.ReadLine()!, out a);
 Console.Write($"Введите количество столбцов: ");
-int.TryParse(Console.ReadLine()!, out m);
-Console.Write($"Введите число: ");
-int.TryParse(Console.ReadLine()!, out k);
+int.TryParse(Console.ReadLine()!, out b);
+
+int n = 3;
+int m = 4;
 int[,] array = new int[n, m];
 
 FillArray(array);
 PrintArray(array);
 
-if (k < array.GetLength(0) && k < array.GetLength(1))
-
-{ Console.WriteLine($"{k} -> число есть в массиве"); }
+if (a < array.GetLength(0) && b < array.GetLength(1))
+{ Console.WriteLine($"{array[a, b]}"); }
 
 else
-
-{ Console.WriteLine($"{k} -> такой числа в массиве нет"); }
+{ Console.WriteLine($"{a},{b} -> такой числа в массиве нет"); }
 
 
 void PrintArray(int[,] arr)
@@ -74,10 +73,44 @@ void PrintArray(int[,] arr)
 void FillArray(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
-    {
+
         for (int j = 0; j < matr.GetLength(1); j++)
         {
             matr[i, j] = new Random().Next(1, 10);
         }
-    }
 }
+*/
+
+/* Задача 52.
+Задайте двумерный массив из целых чисел. 
+Найдите среднее арифметическое элементов в каждом столбце.
+
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+*/
+int[,] array = new int[3, 4];
+
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        array[i, j] = new Random().Next(10);
+        Console.Write($"{array[i, j]} ");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();
+
+for (int i = 0; i < array.GetLength(1); i++)
+{
+    double sum = 0.0;
+    for (int j = 0; j < array.GetLength(0); j++)
+    {
+        sum += array[j, i];
+    }
+    Console.WriteLine($"{sum / array.GetLength(0)}");
+}
+
