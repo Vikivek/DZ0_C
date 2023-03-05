@@ -7,11 +7,19 @@
 0, 7, 8, -2, -2 -> 2
 1, -7, 567, 89, 223-> 3
 */
+Console.Write("Введите количество чисел: ");
+int n;
+int.TryParse(Console.ReadLine()!, out n);
+int count = 0;
 
-Console.Write("Введите элементы(через пробел): ");
-int[] arr = Array.ConvertAll(Console.ReadLine()!.Split(), int.Parse);
-int count = arr.Count(x => x > 0);
-Console.WriteLine($"Кол-во элементов > {count}");
+for (int i = 0; i < n; i++)
+{
+    Console.Write($"Введите число {i + 1}: ");
+    int x = int.Parse(Console.ReadLine()!);
+    if (x > 0)
+        count++;
+}
+Console.WriteLine($"Положительных чисел: {count}");
 
 /*
 Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, 
