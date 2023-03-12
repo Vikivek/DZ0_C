@@ -233,26 +233,31 @@ for (int i = 0; i < arr.GetLength(0); i++)
 11 16 15 06
 10 09 08 07
 */
-int len = 4;
-int[,] table = new int[len, len];
-FillArraySpiral(table, len);
-PrintArray(table);
 
-void FillArraySpiral(int[,] array, int n)
+int[,] arr = new int[4, 4];
+
+int num = 1;
+int i = 0;
+int j = 0;
+
+
+while (num <= arr.GetLength(0) * arr.GetLength(1))
 {
-    int i = 0, j = 0;
-    int value = 1;
-    for (int e = 0; e < n * n; e++)
-    {
-        int k = 0;
-        do { array[i, j++] = value++; } while (++k < n - 1);
-        for (k = 0; k < n - 1; k++) array[i++, j] = value++;
-        for (k = 0; k < n - 1; k++) array[i, j--] = value++;
-        for (k = 0; k < n - 1; k++) array[i--, j] = value++;
-        ++i; ++j;
-        n = n < 2 ? 0 : n - 2;
-    }
+    arr[i, j] = num;
+    if (i <= j + 1 && i + j < arr.GetLength(1) - 1)
+        ++j;
+    else
+    if (i < j && i + j >= arr.GetLength(0) - 1)
+        ++i;
+    else
+    if (i >= j && i + j > arr.GetLength(1) - 1)
+        --j;
+    else
+        --i;
+    ++num;
 }
+
+PrintArray(arr);
 
 void PrintArray(int[,] array)
 {
@@ -260,13 +265,8 @@ void PrintArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            if (array[i, j] < 10)
-            {
-                Console.Write("0" + array[i, j]);
-                Console.Write(" ");
-            }
-            else Console.Write(array[i, j] + " ");
+            Console.Write(String.Format("{0,3}", array[i, j]));
         }
-        Console.WriteLine();
+        Console.WriteLine("");
     }
 }
