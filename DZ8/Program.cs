@@ -31,24 +31,47 @@ string PrintNum(int n, int i = 1)
 M = 1; N = 15 -> 120
 M = 4; N = 8. -> 30
 */
+/*
 int n, m;
-Console.Write($"Введите число: ");
+Console.Write($"Введите число n: ");
 int.TryParse(Console.ReadLine(), out n);
-Console.Write($"Введите число: ");
+Console.Write($"Введите число m: ");
 int.TryParse(Console.ReadLine(), out m);
 
+Console.Write($"Сумма натуральных элементов в промежутке от n до m равна {Sum(n, m)}");
 
-void PrintSum(int a, int b)
+int Sum(int m, int n)
 {
-    if (a == 0 || b == 0) return 0;
-    if (a < b || a > b)
-    {
-        return (a * PrintSum(a + 1, b));
-        Console.Write($"{a} ");
-    }
-    if (a == b)
-    {
-        Console.Write($"{a} "); return;
-    }
+    if (m == n)
+        return m;
+    else
+        return m + Sum(m + 1, n);
 }
-PrintSum(n, m);
+*/
+/*
+Задача 68: 
+Напишите программу вычисления функции Аккермана с помощью рекурсии.
+Даны два неотрицательных числа m и n.
+m = 2, n = 3 -> A(m,n) = 9
+m = 3, n = 2 -> A(m,n) = 29
+*/
+int m, n;
+Console.Write($"Введите число m: ");
+int.TryParse(Console.ReadLine(), out m);
+Console.Write($"Введите число n: ");
+int.TryParse(Console.ReadLine(), out n);
+
+Console.Write($"{Akk(m, n)}");
+
+int Akk(int m, int n)
+{
+    if (m == 0)
+        return n + 1;
+
+    else
+    if (n == 0 && m > 0)
+        return Akk(m - 1, 1);
+
+    else
+        return (Akk(m - 1, Akk(m, n - 1)));
+}
